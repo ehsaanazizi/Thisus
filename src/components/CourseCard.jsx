@@ -1,6 +1,7 @@
 import React from 'react'
 
-function CourseCard() {
+function CourseCard({course}) {
+
   return (
     <div>
       <div className="course-item">
@@ -11,10 +12,10 @@ function CourseCard() {
                     < div className="course-item__detail">
                          <div className="course-item__body">
                               <div>
-                                   <p className="title">React.js Course</p>
-                                   <p className="desk"> The Ultimate React and Redux Course</p>
+                                   <p className="title">{course.title}</p>
+                                   <p className="desk">{course.description}</p>
                               </div>
-                              <span className="rate">4</span>
+                              <span className="rate">{course.rate}</span>
                          </div>
                          <div className="course-item__footer">
                               <div className="tags">
@@ -23,13 +24,13 @@ function CourseCard() {
                               </div>
                               <div className="caption">
                                    <div className="date">
-                                   {new Date().toLocaleDateString("en-US",{
+                                   {new Date(course.start).toLocaleDateString("en-US",{
                                         month:"short",
                                         year:"numeric",
                                         day:"numeric",
 }) }
                                    </div>
-                                   <span className="badge badge--primary">completed</span>
+                                   <span className="badge badge--primary">{course.status}</span>
                               </div>
 
                          </div>
@@ -41,4 +42,4 @@ function CourseCard() {
 }
 
 export default CourseCard;
-;
+
